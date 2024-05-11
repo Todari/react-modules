@@ -6,7 +6,6 @@ import CardExpirationDate from './components/CardExpirationDate';
 import CardHolderName from './components/CardHolderName';
 import CardNumbers from './components/CardNumbers';
 import CardPassword from './components/CardPassword';
-import React from 'react';
 
 function App() {
   return (
