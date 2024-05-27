@@ -7,31 +7,15 @@ import {
   ModalDimmedLayer,
   ModalHeader,
   ModalInputField,
-  ModalTitle
-} from './index'
-
-export interface DefaultModalProps {
-  size?: ModalSize;
-  isOpened: boolean;
-  onClose: () => void;
-  title?: string;
-  description?: string;
-  children?: JSX.Element;
-  modalPosition?: ModalPosition;
-  buttonPosition?: ButtonPosition;
-  primaryColor?: string;
-  showCloseButton?: boolean;
-}
+  ModalTitle,
+} from './index';
 
 interface ModalProp {
-  children: JSX.Element
+  children: JSX.Element;
 }
 
 const Modal = ({ children }: ModalProp) => {
-
-  return (<>
-    {children}
-  </>)
+  return <>{children}</>;
 };
 
 Modal.Body = ModalBody;

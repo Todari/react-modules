@@ -1,7 +1,8 @@
 import Button from '../Button/Button';
 
 import { createPortal } from 'react-dom';
-import Modal, { DefaultModalProps } from './Modal';
+import Modal from './Modal';
+import { DefaultModalProps } from '../types/types';
 
 interface AlertModalProps extends DefaultModalProps {
   onConfirm?: () => void;
@@ -11,7 +12,7 @@ const AlertModal = ({
   size = 'small',
   isOpened,
   onClose,
-  onConfirm = () => { },
+  onConfirm = () => {},
   title = '',
   description = '',
   children,
@@ -20,16 +21,15 @@ const AlertModal = ({
   primaryColor,
   showCloseButton = false,
 }: AlertModalProps) => {
-
-
   return createPortal(
     <>
       {isOpened && (
-        <Modal.DimmedLayer onClick={onClose} isOpened={isOpened} onClose={onClose}>
-          <Modal.Container
-            size={size}
-            modalPosition={modalPosition}
-          >
+        <Modal.DimmedLayer
+          onClick={onClose}
+          isOpened={isOpened}
+          onClose={onClose}
+        >
+          <Modal.Container size={size} modalPosition={modalPosition}>
             <Modal.Header>
               <Modal.Title title={title} />
               {showCloseButton && <Modal.CloseButton onClick={onClose} />}
@@ -46,17 +46,20 @@ const AlertModal = ({
                   onClose();
                 }}
                 size={'small'}
-                width={modalPosition === 'bottom' || buttonPosition === 'column' ? 'full' : 'fixed'}
-                buttonStyle={'primary'}
-                primaryColor={
-                  primaryColor ?? '#333333'
+                width={
+                  modalPosition === 'bottom' || buttonPosition === 'column'
+                    ? 'full'
+                    : 'fixed'
                 }
+                buttonStyle={'primary'}
+                primaryColor={primaryColor ?? '#333333'}
               />
             </Modal.ButtonContainer>
           </Modal.Container>
         </Modal.DimmedLayer>
       )}
-    </>, document.body
+    </>,
+    document.body,
   );
 };
 

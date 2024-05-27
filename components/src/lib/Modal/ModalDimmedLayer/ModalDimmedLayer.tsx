@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { StyledDimmedLayer } from "./ModalDimmedLayer.styled";
+import { useEffect } from 'react';
+import { StyledDimmedLayer } from './ModalDimmedLayer.styled';
 
 interface ModalDimmedLayerProps {
   onClick: () => void;
@@ -8,16 +8,21 @@ interface ModalDimmedLayerProps {
   children: React.ReactNode;
 }
 
-const ModalDimmedLayer = ({ onClick, isOpened, onClose, children }: ModalDimmedLayerProps) => {
+const ModalDimmedLayer = ({
+  onClick,
+  isOpened,
+  onClose,
+  children,
+}: ModalDimmedLayerProps) => {
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
     document.body.addEventListener('keydown', handleKeyDownEsc);
 
     return () => {
       document.body.style.overflow = 'scroll';
-      document.body.removeEventListener('keydown', handleKeyDownEsc)
-    }
-  }, [isOpened])
+      document.body.removeEventListener('keydown', handleKeyDownEsc);
+    };
+  }, [isOpened]);
 
   const handleKeyDownEsc = (e: KeyboardEvent) => {
     if (e.key === 'Escape' && isOpened) {
@@ -25,11 +30,7 @@ const ModalDimmedLayer = ({ onClick, isOpened, onClose, children }: ModalDimmedL
     }
   };
 
-  return (
-    <StyledDimmedLayer onClick={onClick}>
-      {children}
-    </StyledDimmedLayer>
-  )
-}
+  return <StyledDimmedLayer onClick={onClick}>{children}</StyledDimmedLayer>;
+};
 
-export default ModalDimmedLayer
+export default ModalDimmedLayer;

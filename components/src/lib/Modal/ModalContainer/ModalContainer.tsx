@@ -1,9 +1,10 @@
-import { StyledModalContainer } from "./ModalContainer.styled";
+import { ModalPosition, ModalSize } from '../../types/types';
+import { StyledModalContainer } from './ModalContainer.styled';
 
 interface ModalContainer {
   size: ModalSize;
   modalPosition: ModalPosition;
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const ModalContainer = ({ size, modalPosition, children }: ModalContainer) => {
@@ -17,7 +18,7 @@ const ModalContainer = ({ size, modalPosition, children }: ModalContainer) => {
     >
       {children}
     </StyledModalContainer>
-  )
-}
+  );
+};
 
 export default ModalContainer;

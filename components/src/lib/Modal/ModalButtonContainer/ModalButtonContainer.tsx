@@ -1,16 +1,20 @@
-import { StyledButtonContainer } from "./ModalButtonContainer.styled";
+import { ButtonPosition } from '../../types/types';
+import { StyledButtonContainer } from './ModalButtonContainer.styled';
 
 interface ModalButtonContainerProps {
   buttonPosition: ButtonPosition;
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const ModalButtonContainer = ({ buttonPosition, children }: ModalButtonContainerProps) => {
+const ModalButtonContainer = ({
+  buttonPosition,
+  children,
+}: ModalButtonContainerProps) => {
   return (
     <StyledButtonContainer buttonPosition={buttonPosition}>
       {children}
     </StyledButtonContainer>
-  )
-}
+  );
+};
 
 export default ModalButtonContainer;

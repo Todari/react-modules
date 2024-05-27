@@ -1,13 +1,11 @@
-import { StyledModalDescription } from "./ModalDescription..styled"
+import { StyledModalDescription } from './ModalDescription..styled';
 
 interface ModalDescriptionProps {
-  description: string
+  description: string;
 }
 
 const ModalDescription = ({ description }: ModalDescriptionProps) => {
-  return (
-    <StyledModalDescription>{description}</StyledModalDescription>
-  )
-}
+  return <StyledModalDescription>{description}</StyledModalDescription>;
+};
 
 export default ModalDescription;

@@ -1,15 +1,11 @@
-import { StyledModalTitle } from "./ModalTitle.styled"
+import { StyledModalTitle } from './ModalTitle.styled';
 
 interface ModalTitleProps {
-  title: string
+  title: string;
 }
 
 const ModalTitle = ({ title }: ModalTitleProps) => {
-  return (
-    <StyledModalTitle>
-      {title}
-    </StyledModalTitle>
-  )
-}
+  return <StyledModalTitle>{title}</StyledModalTitle>;
+};
 
 export default ModalTitle;

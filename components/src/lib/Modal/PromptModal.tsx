@@ -2,8 +2,9 @@ import Button from '../Button/Button';
 
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import Modal, { DefaultModalProps } from './Modal';
+import Modal from './Modal';
 import { ValidateResult } from './ModalInputField/ModalInputField';
+import { DefaultModalProps } from '../types/types';
 
 interface PromptModalProps extends DefaultModalProps {
   placeholder?: string;
@@ -30,24 +31,30 @@ const PromptModal = ({
   validateOnChange = () => ({ isValid: true, errorMessage: '' }),
   validateOnBlur = () => ({ isValid: true, errorMessage: '' }),
 }: PromptModalProps) => {
-
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue] = useState(initialValue);
 
   return createPortal(
     <>
       {isOpened && (
-        <Modal.DimmedLayer onClick={onClose} isOpened={isOpened} onClose={onClose}>
-          <Modal.Container
-            size={size}
-            modalPosition={modalPosition}
-          >
+        <Modal.DimmedLayer
+          onClick={onClose}
+          isOpened={isOpened}
+          onClose={onClose}
+        >
+          <Modal.Container size={size} modalPosition={modalPosition}>
             <Modal.Header>
               <Modal.Title title={title} />
               {showCloseButton && <Modal.CloseButton onClick={onClose} />}
             </Modal.Header>
             <Modal.Body>
               <Modal.Description description={description} />
-              <Modal.InputField placeholder={placeholder} value={value} updateValue={setValue} validateOnChange={validateOnChange} validateOnBlur={validateOnBlur} />
+              <Modal.InputField
+                placeholder={placeholder}
+                value={value}
+                updateValue={setValue}
+                validateOnChange={validateOnChange}
+                validateOnBlur={validateOnBlur}
+              />
               <>{children}</>
             </Modal.Body>
             <Modal.ButtonContainer buttonPosition={buttonPosition}>
@@ -58,24 +65,31 @@ const PromptModal = ({
                   onClose();
                 }}
                 size={'small'}
-                width={modalPosition === 'bottom' || buttonPosition === 'column' ? 'full' : 'fixed'}
-                buttonStyle={'primary'}
-                primaryColor={
-                  primaryColor ?? '#333333'
+                width={
+                  modalPosition === 'bottom' || buttonPosition === 'column'
+                    ? 'full'
+                    : 'fixed'
                 }
+                buttonStyle={'primary'}
+                primaryColor={primaryColor ?? '#333333'}
               />
               <Button
                 text={'취소'}
                 onClick={onClose}
                 size={'small'}
-                width={modalPosition === 'bottom' || buttonPosition === 'column' ? 'full' : 'fixed'}
+                width={
+                  modalPosition === 'bottom' || buttonPosition === 'column'
+                    ? 'full'
+                    : 'fixed'
+                }
                 buttonStyle={'border'}
               />
             </Modal.ButtonContainer>
           </Modal.Container>
         </Modal.DimmedLayer>
       )}
-    </>, document.body
+    </>,
+    document.body,
   );
 };
 

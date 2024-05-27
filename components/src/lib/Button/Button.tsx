@@ -1,3 +1,4 @@
+import { ButtonSize, ButtonStyle, ButtonWidth } from '../types/types';
 import * as Styled from './Button.styled';
 
 export interface ButtonProps {
@@ -7,7 +8,7 @@ export interface ButtonProps {
   width?: ButtonWidth;
   buttonStyle?: ButtonStyle;
   primaryColor?: string;
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -19,7 +20,6 @@ const Button = ({
   primaryColor = '#333333',
   disabled = false,
 }: ButtonProps) => {
-
   return (
     <Styled.Button
       onClick={onClick}

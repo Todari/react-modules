@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import textColorGenerator from '../utils/textColorGenerator';
 import hoverColorGenerator from '../utils/hoverColorGenerator';
+import { ButtonSize, ButtonStyle, ButtonWidth } from '../types/types';
 
 const BUTTON_SIZE_TABLE = {
   small: { width: '80px', height: '36px', fontSize: '12px' },

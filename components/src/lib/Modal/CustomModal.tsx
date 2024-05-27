@@ -1,5 +1,6 @@
+import { DefaultModalProps } from '../types/types';
 import Button, { ButtonProps } from '../Button/Button';
-import Modal, { DefaultModalProps } from './Modal';
+import Modal from './Modal';
 import { createPortal } from 'react-dom';
 
 interface CustomModalProps extends DefaultModalProps {
@@ -21,15 +22,15 @@ const CustomModal = ({
   primaryColor,
   showCloseButton = false,
 }: CustomModalProps) => {
-
   return createPortal(
     <>
       {isOpened && (
-        <Modal.DimmedLayer onClick={onClose} isOpened={isOpened} onClose={onClose}>
-          <Modal.Container
-            size={size}
-            modalPosition={modalPosition}
-          >
+        <Modal.DimmedLayer
+          onClick={onClose}
+          isOpened={isOpened}
+          onClose={onClose}
+        >
+          <Modal.Container size={size} modalPosition={modalPosition}>
             <Modal.Header>
               <Modal.Title title={title} />
               {showCloseButton && <Modal.CloseButton onClick={onClose} />}
@@ -67,8 +68,9 @@ const CustomModal = ({
           </Modal.Container>
         </Modal.DimmedLayer>
       )}
-    </>
-    , document.body);
+    </>,
+    document.body,
+  );
 };
 
 export default CustomModal;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ButtonPosition } from '../../types/types';
 
 export const StyledButtonContainer = styled.div<{
   buttonPosition: ButtonPosition;

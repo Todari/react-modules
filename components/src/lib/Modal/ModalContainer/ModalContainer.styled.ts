@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ModalPosition, ModalSize } from '../../types/types';
 
 export const StyledModalContainer = styled.div<{
   modalPosition: ModalPosition;
